@@ -10,7 +10,7 @@ angular.module('typewritertv')
                 scope.$storage = $localStorage;
 
                 $timeout(function() {
-                    if (scope.$storage && scope.$storage.content.length === 0) {
+                    if (scope.$storage && !scope.$storage.content) {
                         scope.$storage.content = 'typepen.com/';
                     }
                 });
