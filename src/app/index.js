@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('typewritertv', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ui.router', 'ngStorage'])
-  .config(function ($stateProvider, $urlRouterProvider) {
+  .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $stateProvider
       .state('home', {
         url: '/',
@@ -10,5 +10,9 @@ angular.module('typewritertv', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize
       });
 
     $urlRouterProvider.otherwise('/');
+    $locationProvider.html5Mode({
+      enabled: true,
+      requireBase: false
+    });
   })
 ;
