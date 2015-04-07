@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('typewritertv')
-    .directive('typewriter', function($localStorage) {
+    .directive('typewriter', function($localStorage, $timeout) {
         return {
             'restrict'    : 'E',
             'replace'     : true,
@@ -9,9 +9,11 @@ angular.module('typewritertv')
             'link'        : function(scope) {
                 scope.$storage = $localStorage;
 
-                if (scope.$storage && scope.$storage.content.length === 0) {
-                    scope.$storage.content = 'typewriter.tv/';
-                }
+                $timeout(function() {
+                    if (scope.$storage && scope.$storage.content.length === 0) {
+                        scope.$storage.content = 'typepen.com/';
+                    }
+                });
             }
         };
     });
